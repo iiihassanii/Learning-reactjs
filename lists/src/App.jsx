@@ -1,3 +1,5 @@
+import ProductList from "./components/ProductList";
+import Userlist from "./components/Userlist";
 
 function App() {
   const numbers = [1,2,3,4,5];
@@ -33,7 +35,10 @@ function App() {
           <li>{user.location}</li>
         </ul>
       ))}
-      
+      <br />
+      <Userlist />
+      <br />
+      <ProductList />
     </div>
   )
 }
