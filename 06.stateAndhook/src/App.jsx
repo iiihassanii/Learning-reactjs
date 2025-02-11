@@ -1,4 +1,11 @@
-import { useState } from "react"
+import {  useState } from "react"
+import { FaFaceKissWinkHeart } from "react-icons/fa6";
+import  First  from "./components/First";
+import  Second2  from "./components/Second2";
+import Counter from "./components/Counter";
+import Todolist from "./components/Todolist";
+import Profile from "./components/Profile";
+import Shoppinglist from "./components/Shoppinglist";
 
 
 const Friends = () =>{
@@ -41,6 +48,29 @@ const Movie = ()=>{
   )
 }
 
+const Movieobj = () => {
+
+  const [movie, setMovie] = useState([
+    {id: 1, name: "Hassan", Age: 25},
+    {id: 2, name: "Ola", Age: 24},
+  ])
+
+  const handleclick = ()=>{
+    setMovie(movie.map(m=> (m.id===1 ? {...m, name: "Hassan loves Ols"} : m)))
+  }
+
+  return (
+    <div>
+      <ul>
+        {movie.map(m => (
+          <li key={m.id}>    {m.name}  {m.Age} <FaFaceKissWinkHeart /></li>
+        ))}
+      </ul>
+        <button onClick={handleclick}>Change name</button>
+    </div>
+  )
+}
+
 function App() {
   const [count, setCounter] = useState(0);
   const increment = ()=>  setCounter(count+1);
@@ -51,11 +81,29 @@ function App() {
     <h1>{count}</h1>
     <button onClick={increment}>+</button>
     <button onClick={dencrement}>-</button>
-
+    
     <br />
     <Friends />
     <br />
     <Movie />
+    <br />
+    <Movieobj />
+    <br />
+    <First count={count} onClickh={()=> setCounter(count+1)} />
+    <br />
+    <Second2 onClickh={()=> setCounter(count-1)} />
+    
+    <br />
+    <br />
+    <h2>Challenge</h2>
+    <Counter />
+    <br />
+    <Todolist />
+    <br />
+    <Profile />
+    <br />
+    <Shoppinglist />
+
    </div>
   )
 }
