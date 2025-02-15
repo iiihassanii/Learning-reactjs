@@ -7,7 +7,10 @@ const UpdateUser = () => {
 
   const handleName = (e) => {
     e.preventDefault();
+    if(name.trim()){
     updateUser(name);
+      setName('')
+    }
   };
 
   return (
